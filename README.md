@@ -1,2 +1,2 @@
 # derekmlr.github.io
-2018 New Portfolio site
+My portfolio site for 2018 - [derekmlr.com](http://derekmlr.com)

@@ -1,0 +1,16 @@
+# Welcome to Jekyll!
+#
+# Jekyll Config
+#
+title: Derek Marler Portfolio 2018
+email: contact@derekmlr.com
+description: >- 
+  The 2018 updated porfolio website. New design, new work.
+twitter_username: derekmlr
+github_username:  derekmlr
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
