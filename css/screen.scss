@@ -1,9 +1,13 @@
 ---
 ---
-
+* {
+    box-sizing:border-box;
+}
 body {
     color:#2A2A2B;
     font:14px/1.5em 'Roboto', Helvetica, Arial, sans-serf;
+    margin:0;
+    overflow:hidden;
     padding:0;
 }
 h1 {
@@ -16,30 +20,36 @@ h1 {
 // Structure
 //
 
-.container {
+.wrapper {
     height:100vh;
+    overflow:auto;
+    width:100vw;
+}
+
+.container {
+    min-height:100vh;
     margin:0 auto;
-    max-width:1200px;
-    padding:0 5em;
+    max-width:1180px;
+    padding:0 4em;
     position:relative;
 }
 
-// Slashed BG
+// Diagonal BG
 body:before {
-    background:linear-gradient(134deg, #3023AE 0%, #33DDFF 100%);
-    bottom:-60%;
+    background:linear-gradient(110deg, #3023AE 0%, #33DDFF 100%);
+    bottom:0;
     content:'';
     display:block;
-    left:60%;
-    position:absolute;
+    left:55%;
+    position:fixed;
     right:-25%;
-    top:-60%;
-    transform:rotate(32deg);
+    top:0;
+    transform:skew(-25deg);
 }
 
 // Intro
 .intro {
-    position:absolute;
+    position:fixed;
     top:50%;
     transform:translateY(-60%);
     max-width:320px;
@@ -79,7 +89,33 @@ body:before {
     }
 }
 
-// Work
-.work {
-    display:none;
+// Portfolio
+.portfolio {
+    bottom:0;
+    position:absolute;
+    right:4em;
+    top:0;
+    width:600px;
+
+    &-list {
+        list-style:none;
+        margin:0;
+        padding:calc(50vh - 280px) 0 calc(50vh - 230px);
+    }
+
+    &-item {
+        background:#2A2A2B no-repeat center;
+        background-size:cover;
+        box-shadow:0 10px 24px rgba(black,0.2);
+        border:10px solid white;
+        height:450px;
+        left:0;
+        margin:2.5em 0;
+        //position:absolute;
+        right:0;
+        &:first-child {
+            top:50%;
+            //transform:translateY(-50%);
+        }
+    }
 }
