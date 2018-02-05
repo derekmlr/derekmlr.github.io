@@ -19,6 +19,7 @@
             <img src="img/logo.svg" alt="Derek Marler">
             <h1><strong>Hello,</strong> I'm a Design Engineer.</h1>
             <p>With over a decade of professional experience, I’ve helped craft user-centric experiences from both design and engineering perspectives.</p>
+            <h3></h3>
             <nav class="links">
                 <a href="resume.pdf" class="links-item links-resume"><img src="img/icon-resume.svg" alt="Download my resume"></a>
                 <a href="https://twitter.com/derekmlr" class="links-item links-twitter"><img src="img/icon-twitter.svg" alt="Twitter Profile"></a>
@@ -28,15 +29,15 @@
 
         <section class="portfolio">
             <ol class="portfolio-list">
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2443070/dribbble-shot.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2466736/dribbble_shot.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/3710006/dribbble-ebay-design.png)">&nbsp;</li>
                 <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/3568120/ebayheader-dribbble.png)">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
-                <li class="portfolio-item" style="background-image:url()">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2833346/dribbble.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2442754/dribbble-shot.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2429731/guidebot.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/2429767/firefox-shot.png)">&nbsp;</li>
+                <li class="portfolio-item" style="background-image:url(https://cdn.dribbble.com/users/89152/screenshots/1727389/iphone6-redesign-thumb.png)">&nbsp;</li>
             </ol>
             <nav class="slide-pagination">
                 <a href="#"></a>
@@ -44,6 +45,99 @@
         </section>
     </div>
 </div>
+
+<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.visible.js" type="text/javascript"></script>
+<script>
+    function focusPortfolioItem() {
+        var $selected_el;
+        $('.portfolio-item').each(function() {
+            var $el = $(this);
+            if($el.visible()) {
+                $el.addClass('active');
+                $selected_el = $el;
+            } else {
+                $el.removeClass('active');
+            }
+        });
+        return $selected_el;
+    }
+    //focusPortfolioItem();
+    // var scroll = 0;
+    // var scrollSnap;
+    // $('.wrapper').scroll(function() {
+    //     clearTimeout(scrollSnap);
+    //     var $wrapper = $('.wrapper');
+    //     scroll = $(this).scrollTop();
+    //     $selected_el = focusPortfolioItem();
+    //     scrollSnap = setTimeout(function() { 
+    //         $wrapper.scrollTop($selected_el.offset().top + $selected_el.height() / 2);
+    //         //console.log($('.portfolio-item.active').offset().top + $('.portfolio-item.active').height() / 2);
+    //         console.log('scrolled!');
+    //         clearTimeout(scrollSnap);
+    //     } , 3000);
+    // });
+
+    var $wrapper = $('.wrapper');
+    var lastScrollTop = 0;
+    $wrapper.scroll(function(e){
+        var currentScrollTop = $(this).scrollTop();
+        var direction = (currentScrollTop > lastScrollTop) ? 'down' : 'up';
+        
+        console.log(direction);
+        
+        lastScrollTop = currentScrollTop;
+    });
+    
+    var $selected_el;
+    var $wrapper = $('.wrapper');
+    var scrollSpeed = 250; //Default scroll speed.
+    var scrollWait = 400; //Waiting time to make sure the user is done scrolling.
+    var scroll_active = true;
+    var $scroller;
+    /*$wrapper.scroll(function() {
+        clearTimeout($scroller);
+        if (scroll_active == true) {
+            $selected_el = focusPortfolioItem();
+            scroll_to = ( $selected_el.position().top + parseInt($selected_el.css('marginTop')) ); // element top + element margin
+            scroll_to = scroll_to - ( window.innerHeight / 2 ) + ( $selected_el.innerHeight() / 2 + 55 ); // add half of window height minus half of element's height
+            console.log(window.innerHeight/2);
+            console.log(scroll_to);
+            $scroller = setTimeout(function() {
+                scroll_active = false;
+                console.log('Timeout going to '+ scroll_to);
+                $wrapper.css('overflow', 'hidden');
+                $wrapper.animate({
+                    scrollTop : scroll_to
+                }, 500, function() {
+                    $wrapper.css('overflow', 'auto');
+                    scroll_active = true;
+                });
+            }, scrollWait);
+        }
+    });
+
+    var clicked = false, clickY;
+    $(document).on({
+        'mousemove': function(e) {
+            clicked && updateScrollPos(e);
+        },
+        'mousedown': function(e) {
+            clicked = true;
+            clickY = e.pageY;
+        },
+        'mouseup': function() {
+            clicked = false;
+            $('html').css('cursor', 'auto');
+        }
+    });
+
+    var updateScrollPos = function(e) {
+        $('html').css('cursor', 'row-resize');
+        $('.wrapper').scrollTop($('.wrapper').scrollTop() + ( (clickY - e.pageY) / 5 ) );
+    }*/
+</script>
+
 </body>
 
 </html>
