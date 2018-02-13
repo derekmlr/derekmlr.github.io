@@ -367,7 +367,7 @@ body {
     &-content {
         margin-left:60vw;
         opacity:0;
-        padding:3em 4em;
+        padding:4em;
         position:relative;
         transform:translateX(-10%);
         transition:all 0.4s ease-in-out;
@@ -376,6 +376,7 @@ body {
 
     &-title {
         margin-bottom:20px;
+        margin-top:0;
     }
 
     &-project {
