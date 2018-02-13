@@ -163,25 +163,30 @@
     function getThumbBoundsFn(el) {
 
         // get position of element relative to viewport
-        var rect = el.getBoundingClientRect();
+        var thumb = el.getBoundingClientRect();
 
         // Set width to animate from
         $('.modal-image').css('width', $(el).width());
+
+        // Find X and Y it needs to move too.
+        var newX = (window.innerWidth*0.02)-thumb.left; // 2% of window width minus current list item position, negative value
+        var newY = ((window.innerHeight*0.5)-thumb.top)-((window.innerWidth*0.55*0.75)/2)-5; // get distance from top, minus by half of new image height (55vw*75%/2) minus border
 
         // Set modal image to list item dimensions
         $('.modal-image')
             .css({
                 'background-image':$(el).css('background-image'),
-                left   : rect.left,
-                top    : rect.top,
-                width  : rect.width
+                left   : thumb.left,
+                top    : thumb.top,
+                transform : 'translateX('+newX+'px) translateY('+newY+'px)',
+                width  : thumb.width
             });
         
         // Prevent flicker when animating and hiding
         setTimeout(function() { 
 
             // Animate into place on modal
-            $('.modal-image').addClass('animate move');
+            $('.modal-image').addClass('move');
             
             setTimeout(function() { 
                 // Hide list item
@@ -222,10 +227,18 @@
     $('.modal-image, .modal-close').click(function(e) {
         e.preventDefault();
         $('.modal').removeClass('show');
-        $('.modal-image').removeClass('move');
         setTimeout(function() {
-            $('.portfolio li.hide').removeClass('hide');
-            $('.modal-image').removeClass('animate').removeAttr('style');
+            // Move it back to the list and disappear
+            $('.modal-image').removeClass('move').css({
+                transform : 'translateX(0) translateY(0)',
+            });
+            // Wait for transition to finish...
+            setTimeout(function() {
+                // Show list item
+                $('.portfolio li.hide').removeClass('hide');
+                // Reset positioning
+                $('.modal-image').removeAttr('style');
+            }, 400);
         },1300);
     });
 </script>
