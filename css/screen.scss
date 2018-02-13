@@ -288,6 +288,7 @@ body {
         border:10px solid white;
         box-shadow:0 10px 24px rgba(black,0.2);
         cursor:pointer;
+        max-width:800px;
         position:absolute;
         transform:translate3d(0,0,0);
         transition-delay:1s;
@@ -313,7 +314,7 @@ body {
             transition-delay:0s;
             transform:translateY(-50%);
             visibility:visible;
-            width:55vw!important;
+            width:50vw!important;
         }
     }
 
@@ -365,13 +366,13 @@ body {
     }
 
     &-content {
-        margin-left:60vw;
+        margin-left:54vw;
         opacity:0;
         padding:5em;
         position:relative;
         transform:translateX(-10%);
         transition:all 0.4s ease-in-out;
-        width:30vw;
+        width:40vw;
     }
 
     &-title {
@@ -396,7 +397,7 @@ body {
     &-brief,
     &-skills {
         color:$color_grayBlue;
-        max-width:250px;
+        max-width:320px;
     }
 
     &-brief {
