@@ -7,7 +7,7 @@
 
 // Colors
 $color_black : #2A2A2B;
-$color_blue : #4A90E2;
+$color_blue : #318CFF;
 $color_darkBlue : #3023AE;
 $color_lightBlue : #33DDFF;
 $color_grayBlue : #80808B;
@@ -29,6 +29,16 @@ $color_grayBlue : #80808B;
 * {
     box-sizing:border-box;
 }
+
+a {
+    color:$color_blue;
+    text-decoration:none;
+
+    &:hover {
+        text-decoration:underline;
+    }
+}
+
 body {
     color:$color_black;
     font:14px/1.5em 'Roboto', Helvetica, Arial, sans-serf;
@@ -36,11 +46,13 @@ body {
     overflow:hidden;
     padding:0;
 }
+
 h1 {
     font-size:2.4rem;
     font-weight:400;
     line-height:1.25em;
 }
+
 h2 {
     font-size:2.4rem;
     line-height:1.1em;
@@ -177,21 +189,15 @@ body {
         background-size:cover;
         box-shadow:0 10px 24px rgba(black,0.2);
         border:10px solid white;
+        cursor:pointer;
         margin:30px 0;
         position:relative;
         transform:scale(1);
-        //transition:all 0.4s ease-in-out;
         
         &:before {
             content:'';
             display:inline-block;
             padding-top:75%;
-        }
-        
-        &.active {
-            box-shadow:0 10px 32px rgba(black,0.4);
-            transform:scale(1.1);
-            z-index:3;
         }
 
         &.hide {
@@ -249,25 +255,27 @@ body {
 
     &.show {
         opacity:1;
-        transition-delay:0s;
+        transition-delay:0.4s;
         visibility:visible;
 
         .modal {
             &-close {
-                right:0;
-                transition-delay:1.2s;
+                right:-1px;
+                transition-duration:0.8s;
+                transition-delay:1s;
             }
 
             &-pane {
                 right:0;
+                transition-duration:0.8s;
                 transition-delay:0.25s;
             }
 
             &-content {
                 opacity:1;
                 transform:translateX(0);
-                transition-duration:0.8s;
-                transition-delay:0.6s;
+                transition-duration:1s;
+                transition-delay:0.4s;
             }
         }
     }
@@ -279,9 +287,10 @@ body {
         background-size:cover;
         border:10px solid white;
         box-shadow:0 10px 24px rgba(black,0.2);
+        cursor:pointer;
         position:absolute;
         transform:translate3d(0,0,0);
-        transition-delay:0.5s;
+        transition-delay:1s;
         visibility:hidden;
         z-index:9999;
         
@@ -360,7 +369,7 @@ body {
         opacity:0;
         padding:3em 4em;
         position:relative;
-        transform:translateX(-20%);
+        transform:translateX(-10%);
         transition:all 0.4s ease-in-out;
         width:30vw;
     }
@@ -389,8 +398,12 @@ body {
         max-width:250px;
     }
 
+    &-brief {
+        margin:1em 0 1.5m;
+    }
+
     &-skills {
         padding-left:1.5em;
-        padding-bottom:1em;
+        padding-bottom:0.5em;
     }
 }
