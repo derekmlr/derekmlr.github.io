@@ -243,13 +243,13 @@ body {
     background:rgba(241,241,241,0.96);
     bottom:0;
     left:0;
-    opacity:0;
+    opacity:0.001;
     overflow:hidden;
     position:absolute;
     right:0;
     top:0;
     transition:all 0.2s ease-in-out;
-    transition-delay:0.75s;
+    transition-delay:0.5s;
     visibility:hidden;
     z-index:999;
 
@@ -260,15 +260,15 @@ body {
 
         .modal {
             &-close {
-                right:-1px;
+                transform:translateX(0);
                 transition-duration:0.8s;
                 transition-delay:1s;
             }
 
             &-pane {
-                right:0;
                 transition-duration:0.8s;
                 transition-delay:0.25s;
+                width:100vw;
             }
 
             &-content {
@@ -318,8 +318,9 @@ body {
         height:50px;
         padding:0;
         position:absolute;
-        right:-50px;
+        right:0;
         text-align:center;
+        transform:translateX(100%);
         transition:all 0.2s ease-in-out;
         transition-delay:0s;
         top:30px;
@@ -354,12 +355,13 @@ body {
         transform:translateY(-50%);
         transition:all 0.4s ease-in-out;
         transition-delay:0.5s;
+        width:0;
     }
 
     &-content {
-        margin-left:58vw;
+        margin-left:60vw;
         max-width:420px;
-        opacity:0;
+        opacity:0.001;
         padding:4.5em 0 4.5em 5em;
         position:relative;
         transform:translateX(-10%);
