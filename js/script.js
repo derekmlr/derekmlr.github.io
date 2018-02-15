@@ -141,7 +141,7 @@ $('.modal-image, .modal-image-mobile, .modal-close').click(function(e) {
                     .css('visibility','hidden');
             }, 500);
 
-        },200);
+        },400);
     }
 
     // Re-enable scroll

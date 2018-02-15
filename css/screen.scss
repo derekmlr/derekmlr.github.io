@@ -277,12 +277,12 @@ body {
             &-close {
                 transform:translateX(0);
                 transition-duration:0.6s;
-                transition-delay:0.8s;
+                transition-delay:0.4s;
             }
 
             &-pane {
                 transition-duration:0.8s;
-                transition-delay:0.4s;
+                transition-delay:0.2s;
                 width:100vw;
             }
 
@@ -290,7 +290,7 @@ body {
                 opacity:1;
                 transform:translateX(0);
                 transition-duration:1s;
-                transition-delay:0.5s;
+                transition-delay:0.3s;
             }
         }
     }
