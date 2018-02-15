@@ -5,6 +5,7 @@ var isMobile;
 function checkMobile() {
     isMobile = (window.innerWidth >= 1080) ? false : true;
 }
+checkMobile();
 
 // Check for mobile on browser resize
 $(window).resize(function () {
