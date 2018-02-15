@@ -270,19 +270,19 @@ body {
 
     &.show {
         opacity:1;
-        transition-delay:0.2s;
+        transition-delay:0.4s;
         visibility:visible;
 
         .modal {
             &-close {
                 transform:translateX(0);
                 transition-duration:0.6s;
-                transition-delay:1s;
+                transition-delay:0.8s;
             }
 
             &-pane {
                 transition-duration:0.8s;
-                transition-delay:0.2s;
+                transition-delay:0.4s;
                 width:100vw;
             }
 
@@ -290,7 +290,7 @@ body {
                 opacity:1;
                 transform:translateX(0);
                 transition-duration:1s;
-                transition-delay:0.4s;
+                transition-delay:0.5s;
             }
         }
     }
@@ -305,9 +305,8 @@ body {
         cursor:pointer;
         position:absolute;
         transition-delay:1s;
-        transition:all 0.4s linear;
+        transition:all 0.4s ease-in-out;
         transform:translateX(0) translateY(0);
-        visibility:hidden;
         z-index:9998;
         
         &:before {
@@ -318,7 +317,6 @@ body {
 
         &.animate-in {
             transition-delay:0s;
-            visibility:visible;
 
             @include breakpoint(phone) {
                 border-width:3px;

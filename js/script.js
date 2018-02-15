@@ -28,7 +28,8 @@ function animateThumb(el) {
             'background-image':$(el).css('background-image'),
             left   : thumb.left,
             top    : thumb.top,
-            width  : thumb.width
+            width  : thumb.width,
+            'visibility' : 'visible'
         });
 
     // Get width, X, and Y values to move to
@@ -125,21 +126,24 @@ $('.modal-image, .modal-image-mobile, .modal-close').click(function(e) {
             // Move it back to the list and disappear
             $('.modal-image').removeClass('animate-in').css({
                 transform : 'translateX(0) translateY(0)',
-                width : $('.portfolio li').innerWidth()
+                width : $('.portfolio li').innerWidth()+20
             });
             
             // Wait for transition to finish...
             setTimeout(function() {
-                // Re-enable scroll
-                $('body').removeClass('modal-open');
                 
                 // Show list item
                 $('.portfolio li.hide').removeClass('hide');
                 
                 // Reset positioning
-                $('.modal-image').removeAttr('style');
-            }, 400);
+                $('.modal-image')
+                    .removeAttr('style')
+                    .css('visibility','hidden');
+            }, 500);
 
-        },400);
+        },200);
     }
+
+    // Re-enable scroll
+    $('body').removeClass('modal-open');
 });
